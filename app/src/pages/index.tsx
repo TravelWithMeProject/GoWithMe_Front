@@ -1,11 +1,56 @@
 import React from 'react';
+import { Route, RouteProps, Routes } from 'react-router-dom';
+import { Home, Counter, ParentNesting, ChildNesting } from "./router";
 
-const Pages = () => {
+interface NestingRouterProps extends RouteProps {
+  parentPath: string;
+}
+
+const Router = () => {
+  const routerList: RouteProps[] = [
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/counter",
+      element: <Counter />,
+    },
+    {
+      path: "/news",
+      element: <></>
+    },
+    {
+      path: "/nesting/*",
+      element: <ParentNesting />
+    },
+  ];
+
+  const nestingRouterList: NestingRouterProps[] = [
+    {
+      parentPath: "/nesting/*",
+      path: ":id",
+      element: <ChildNesting />
+    }
+  ];
+
   return (
-    <div>
-      
-    </div>
+    <Routes>
+      {routerList.map((router, idx) => (
+        <Route {...router} key={idx}>
+          <>
+            {nestingRouterList.map((nestRouter, idx) => {
+              const { parentPath, ...rest } = nestRouter;
+                
+              if (parentPath === router.path) {
+                return <Route {...rest} key={idx} />;
+              }
+            })}
+          </>
+        </Route>
+      ))}
+    </Routes>
   );
 };
 
-export default Pages;
+export default Router;
