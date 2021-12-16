@@ -1,15 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Nav from '@components/Nav';
 
 const HomePage = () => {
   return (
-    <div>
-      <ul>
-        <li><Link to="/counter">카운터</Link></li>
-        <li><Link to="/news">뉴스</Link></li>
-        <li><Link to="/nesting">중첩</Link></li>
-      </ul>
-    </div>
+    <>
+      <Nav />
+    </>
   );
 };
 
