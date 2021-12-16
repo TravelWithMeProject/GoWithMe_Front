@@ -10,6 +10,7 @@ interface Props {
 }
 const Counter = ({onIncrease, onDecrease, onClear }: Props) => {
   const count = useSelector((state: RootState) => state.counter.count);
+  
   return (
     <CounterContainer>
       <div>

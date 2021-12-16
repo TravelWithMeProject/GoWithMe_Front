@@ -6,15 +6,15 @@ export const CounterTypes = {
 } as const;
 
 // Counter 액션 생성 함수 인터페이스
-export interface counterIncrease {
+interface counterIncrease {
   type: typeof CounterTypes.COUNTER_INCREASE,
 }
 
-export interface counterDecrease {
+interface counterDecrease {
   type: typeof CounterTypes.COUNTER_DECREASE,
 }
 
-export interface counterClear {
+interface counterClear {
   type: typeof CounterTypes.COUNTER_CLEAR,
 }
 
