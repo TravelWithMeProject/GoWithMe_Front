@@ -1,14 +1,15 @@
 import React, { useCallback } from 'react';
-import CounterPage from '@pages/Counter';
+import store from '@redux/store';
 import Counter from '@components/Counter';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import { useDispatch } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { counterClear, counterDecrease, counterIncrease } from '@redux/actionCreator/counter';
 
 export default {
   title: 'Components/Couner',
-  component: CounterPage,
+  component: Counter,
+  decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 }
 
 const Template: Story = ({ }) => {
@@ -37,7 +38,6 @@ const Template: Story = ({ }) => {
 
     dispatch(counterClear());
   }, []);
-  
   return (
     <StoryWrapper>
       <Counter 
