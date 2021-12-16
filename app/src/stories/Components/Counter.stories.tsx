@@ -1,14 +1,14 @@
 import React from 'react';
-import { Story } from '@storybook/react/types-6-0';
 import CounterPage from '@pages/Counter';
+import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
 
 export default {
-  title: 'Component/Box',
+  title: 'Components/Couner',
   component: CounterPage,
 }
 
-const Template: Story = ({ title, content }) => {
+const Template: Story = ({ }) => {
   return (
     <StoryWrapper>
       <CounterPage />
@@ -18,6 +18,4 @@ const Template: Story = ({ title, content }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  title: "ToToal Premium",
-  content: "1.000.000원",
 };
