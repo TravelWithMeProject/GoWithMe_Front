@@ -18,7 +18,7 @@ const CovidList = () => {
 
   return (
     <CovidListContainer>
-      {transformData && transformData.map((el: CovidData) => (
+      {transformData.map((el: CovidData) => (
         <CovidItem 
           key={el.ID}
           date={el.Date}
