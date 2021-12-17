@@ -7,3 +7,15 @@ export const StoryWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const Wrapper = styled.div`
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ColumnWrapper = styled(Wrapper)`
+  flex-direction: column;
+`;
