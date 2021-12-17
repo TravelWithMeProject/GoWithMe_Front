@@ -1,27 +1,44 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { covidRequest } from '@redux/actionCreator/covid';
+import { covidLiveCountryRequest } from '@redux/actionCreator/covid';
 import { RootState } from '@redux/reducers';
 import CovidList from '@components/Covid/List';
 import { ColumnWrapper } from '@components/Common';
-import styled from 'styled-components';
+import CovidForm from '@components/Covid/form';
+import useInput from '@hooks/useInputs';
+import axios from 'axios';
 
-const Button = styled.button`
-  width: 200px;
-  font-size: 30px;
-`;
+
+interface FormValues {
+  country: string;
+}
 
 const CovidPage = () => {
-  const { loading } = useSelector((state:RootState) => state.covid);
   const dispatch = useDispatch();
+  const { loading } = useSelector((state:RootState) => state.covid);
+  const [formValues, onChange] = useInput<FormValues>({
+    country: "",
+  });
 
-  const getCovid = useCallback(() => {
-    dispatch(covidRequest());
-  }, [dispatch]);
+  const getCovid = useCallback((e) => {
+    e.preventDefault();
+    const { country } = formValues;
 
+    if (country) {
+      dispatch(covidLiveCountryRequest({ country }));
+    }
+  }, [dispatch, formValues]);
+
+  useEffect(() => {
+    axios.get('https://api.covid19api.com/countries').then(res => console.log(res));
+  }, []);
   return (
     <ColumnWrapper>
-      <Button onClick={getCovid}>불러오기</Button>
+      <CovidForm
+        formValues={formValues}
+        onChange={onChange}
+        getCovid={getCovid} 
+      />
       {loading ? (
         <p>데이터를 불러오고 있습니다.</p>
       ) : (

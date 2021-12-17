@@ -13,19 +13,19 @@ const CovidReducer = (
   action: CovidActions
 ): CovidState => {
   switch(action.type) {
-    case covidTypes.COVID_GET_REQUEST:
+    case covidTypes.COVID_GET_LIVE_COUNTRY_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case covidTypes.COVID_GET_SUCCESS:
+    case covidTypes.COVID_GET_LIVE_COUNTRY_SUCCESS:
       return {
         ...state,
         loading: false,
         done: true,
         data: action.data
       };
-    case covidTypes.COVID_GET_FAILURE:
+    case covidTypes.COVID_GET_LIVE_COUNTRY_FAILURE:
       return {
         ...state,
         loading: false,
