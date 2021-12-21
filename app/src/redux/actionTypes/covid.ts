@@ -1,29 +1,49 @@
-import { CovidData } from "@redux/types/covid";
+import { CovidLiveData } from "@redux/types/covid";
 
 // Covid 액션 타입
 export const covidTypes = {
-  COVID_GET_LIVE_COUNTRY_REQUEST: "COVID_GET_LIVE_COUNTRY_REQUEST",
-  COVID_GET_LIVE_COUNTRY_SUCCESS: "COVID_GET_LIVE_COUNTRY_SUCCESS",
-  COVID_GET_LIVE_COUNTRY_FAILURE: "COVID_GET_LIVE_COUNTRY_FAILURE",
+  COVID_GET_LIVE_REQUEST: "COVID_GET_LIVE_REQUEST",
+  COVID_GET_LIVE_SUCCESS: "COVID_GET_LIVE_SUCCESS",
+  COVID_GET_LIVE_FAILURE: "COVID_GET_LIVE_FAILURE",
+  COVID_GET_ALL_COUNTRY_REQUEST: "COVID_GET_ALL_COUNTRY_REQUEST",
+  COVID_GET_ALL_COUNTRY_SUCCESS: "COVID_GET_ALL_COUNTRY_SUCCESS",
+  COVID_GET_ALL_COUNTRY_FAILURE: "COVID_GET_ALL_COUNTRY_FAILURE",
 } as const;
 
 // Covid 액션 생성 함수 인터페이스
-interface covidGetLiveCountryRequest {
-  type: typeof covidTypes.COVID_GET_LIVE_COUNTRY_REQUEST,
+interface covidGetLiveRequest {
+  type: typeof covidTypes.COVID_GET_LIVE_REQUEST,
 }
 
-interface covidGetLiveCountrySuccess {
-  type: typeof covidTypes.COVID_GET_LIVE_COUNTRY_SUCCESS,
-  data: CovidData[];
+interface covidGetLiveSuccess {
+  type: typeof covidTypes.COVID_GET_LIVE_SUCCESS,
+  data: CovidLiveData[];
 }
 
-interface covidGetLiveCountryFailure {
-  type: typeof covidTypes.COVID_GET_LIVE_COUNTRY_FAILURE,
+interface covidGetLiveFailure {
+  type: typeof covidTypes.COVID_GET_LIVE_FAILURE,
+  error: string;
+}
+
+interface covidGetAllCountryRequest {
+  type: typeof covidTypes.COVID_GET_ALL_COUNTRY_REQUEST,
+}
+
+interface covidGetAllCountrySuccess {
+  type: typeof covidTypes.COVID_GET_ALL_COUNTRY_SUCCESS,
+  data: any;
+}
+
+interface covidGetAllCountryFailure {
+  type: typeof covidTypes.COVID_GET_ALL_COUNTRY_FAILURE,
   error: string;
 }
 
 // Actions
 export type CovidActions = 
-  covidGetLiveCountryRequest |
-  covidGetLiveCountrySuccess |
-  covidGetLiveCountryFailure;
+  covidGetLiveRequest |
+  covidGetLiveSuccess |
+  covidGetLiveFailure |
+  covidGetAllCountryRequest |
+  covidGetAllCountrySuccess |
+  covidGetAllCountryFailure;

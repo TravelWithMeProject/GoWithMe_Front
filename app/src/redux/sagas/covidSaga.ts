@@ -12,37 +12,64 @@ interface Action {
   payload: Payload;
 }
 
-// GET CovidLiveCountry
-function getCovidLiveCountryAPI(payload: Payload) {
+// GET CovidLive
+function getCovidLiveAPI(payload: Payload) {
   const { country } = payload;
-  return axios.get(`${APIS_URL.covidLiveCountry.url}/${country}`);
+  return axios.get(`${APIS_URL.covidLive.url}/${country}`);
 }
 
-function* getCovidLiveCountry(action: Action) {
+function* getCovidLive(action: Action) {
   try {
-    const result: AxiosResponse = yield call(getCovidLiveCountryAPI, action.payload);
+    const result: AxiosResponse = yield call(getCovidLiveAPI, action.payload);
 
     yield put({
-      type: covidTypes.COVID_GET_LIVE_COUNTRY_SUCCESS,
+      type: covidTypes.COVID_GET_LIVE_SUCCESS,
       data: result.data
     });
   } catch (err: any) {
     const { response } = err;
 
     yield put({
-      type:  covidTypes.COVID_GET_LIVE_COUNTRY_FAILURE,
+      type:  covidTypes.COVID_GET_LIVE_FAILURE,
+      error: response.data
+    });
+  }
+}
+
+// GET CovidLive
+function getCovidAllCountryAPI() {
+  return axios.get(`${APIS_URL.covidAllCountry.url}`);
+}
+
+function* getCovidAllCountry() {
+  try {
+    const result: AxiosResponse = yield call(getCovidAllCountryAPI);
+
+    yield put({
+      type: covidTypes.COVID_GET_ALL_COUNTRY_SUCCESS,
+      data: result.data
+    });
+  } catch (err: any) {
+    const { response } = err;
+
+    yield put({
+      type:  covidTypes.COVID_GET_ALL_COUNTRY_FAILURE,
       error: response.data
     });
   }
 }
 
 // watch
-function* watchGetCovidLiveCountry() {
-  yield takeLatest(covidTypes.COVID_GET_LIVE_COUNTRY_REQUEST, getCovidLiveCountry);
+function* watchGetCovidLive() {
+  yield takeLatest(covidTypes.COVID_GET_LIVE_REQUEST, getCovidLive);
+}
+function* watchGetCovidAllCountry() {
+  yield takeLatest(covidTypes.COVID_GET_ALL_COUNTRY_REQUEST, getCovidAllCountry);
 }
 
 export default function* covidSaga() {
   yield all([
-    fork(watchGetCovidLiveCountry),
+    fork(watchGetCovidLive),
+    fork(watchGetCovidAllCountry),
   ]);
 }

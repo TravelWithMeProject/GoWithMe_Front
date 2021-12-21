@@ -1,11 +1,15 @@
 export interface CovidState {
-  data: CovidData[];
-  loading: boolean,
-  done: boolean,
-  error: string,
+  LiveData: CovidLiveData[];
+  AllCountryData: CovidAllCountryData[];
+  LiveLoading: boolean;
+  LiveDone: boolean;
+  LiveError: string;
+  AllCountryLoading: boolean;
+  AllCountryDone: boolean;
+  AllCountryError: string;
 }
 
-export interface CovidData {
+export interface CovidLiveData {
   Active: number
   City: string
   CityCode: string
@@ -19,4 +23,10 @@ export interface CovidData {
   Lon: string
   Province: string
   Recovered: number
+}
+
+export interface CovidAllCountryData {
+  Country: string
+  ISO2: string
+  Slug: string
 }

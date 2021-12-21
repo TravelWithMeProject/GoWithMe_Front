@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import moment from 'moment';
 import CovidItem from '../Item';
-import { CovidData } from '@redux/types/covid';
+import { CovidLiveData } from '@redux/types/covid';
 import { CovidListContainer } from './style';
 
 interface Props {
-  covidData: CovidData[];
+  covidData: CovidLiveData[];
 }
 
 const CovidList = ({ covidData }: Props ) => {
@@ -18,7 +18,7 @@ const CovidList = ({ covidData }: Props ) => {
 
   return (
     <CovidListContainer>
-      {transformData.map((el: CovidData) => (
+      {transformData.map((el: CovidLiveData) => (
         <CovidItem 
           key={el.ID}
           date={el.Date}
