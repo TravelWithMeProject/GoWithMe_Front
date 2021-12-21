@@ -1,20 +1,20 @@
 import React, { useMemo } from 'react';
 import moment from 'moment';
 import CovidItem from '../Item';
-import { RootState } from '@redux/reducers';
 import { CovidData } from '@redux/types/covid';
-import { useSelector } from 'react-redux';
 import { CovidListContainer } from './style';
 
-const CovidList = () => {
-  const { data } = useSelector((state: RootState) => state.covid);
+interface Props {
+  covidData: CovidData[];
+}
 
+const CovidList = ({ covidData }: Props ) => {
   const transformData = useMemo(() => {
-    return data.map(el => ({
+    return covidData.map(el => ({
       ...el,
       Date: moment(el.Date).format('YYYY-MM-DD'),
     }));
-  }, [data]);
+  }, [covidData]);
 
   return (
     <CovidListContainer>

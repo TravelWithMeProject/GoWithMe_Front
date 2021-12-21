@@ -15,7 +15,9 @@ interface FormValues {
 
 const CovidPage = () => {
   const dispatch = useDispatch();
+  
   const { loading } = useSelector((state:RootState) => state.covid);
+  const { data } = useSelector((state: RootState) => state.covid);
   const [formValues, onChange] = useInput<FormValues>({
     country: "",
   });
@@ -32,6 +34,7 @@ const CovidPage = () => {
   useEffect(() => {
     axios.get('https://api.covid19api.com/countries').then(res => console.log(res));
   }, []);
+
   return (
     <ColumnWrapper>
       <CovidForm
@@ -42,7 +45,7 @@ const CovidPage = () => {
       {loading ? (
         <p>데이터를 불러오고 있습니다.</p>
       ) : (
-        <CovidList />
+        <CovidList covidData={data} />
       )}
     </ColumnWrapper>
   );

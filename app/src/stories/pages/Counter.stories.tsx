@@ -3,17 +3,19 @@ import store from '@redux/store';
 import Counter from '@components/Counter';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { counterClear, counterDecrease, counterIncrease } from '@redux/actionCreator/counter';
+import { RootState } from '@redux/reducers';
 
 export default {
-  title: 'Components/Couner',
+  title: 'Pages/Couner',
   component: Counter,
   decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 }
 
 const Template: Story = ({ }) => {
   const dispatch = useDispatch();
+  const count = useSelector((state: RootState) => state.counter.count);
 
   const onIncrease = useCallback((
     e: React.MouseEvent<HTMLElement>
@@ -40,7 +42,8 @@ const Template: Story = ({ }) => {
   }, []);
   return (
     <StoryWrapper>
-      <Counter 
+      <Counter
+        count={count}
         onIncrease={onIncrease}
         onDecrease={onDecrease}
         onClear={onClear}

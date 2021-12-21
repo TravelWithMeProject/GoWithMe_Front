@@ -1,5 +1,5 @@
 export interface CovidState {
-  data: any[];
+  data: CovidData[];
   loading: boolean,
   done: boolean,
   error: string,

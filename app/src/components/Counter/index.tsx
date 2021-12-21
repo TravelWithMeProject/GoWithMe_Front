@@ -1,16 +1,13 @@
-import { RootState } from '@redux/reducers';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { CounterContainer } from './style';
 
 interface Props {
+  count: number;
   onIncrease: (e: React.MouseEvent<HTMLElement>) => void;
   onDecrease: (e: React.MouseEvent<HTMLElement>) => void;
   onClear: (e: React.MouseEvent<HTMLElement>) => void;
 }
-const Counter = ({onIncrease, onDecrease, onClear }: Props) => {
-  const count = useSelector((state: RootState) => state.counter.count);
-  
+const Counter = ({ count, onIncrease, onDecrease, onClear }: Props) => {
   return (
     <CounterContainer>
       <div>
