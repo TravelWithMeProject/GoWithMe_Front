@@ -82,9 +82,81 @@
 - Container: 어떻게 동작하는지, 어떤 로직을 수행하는지에 관련있다. 상태, 비즈니스 로직들을 모아 놓는다. markup, style을 사용하면 안된다.
 - Presentational: Container에서 처리한 상태를 props로 전달받아 상태를 화면에 출력하는 컴포넌트.
 
+<br />
+
 ### 디자인 패턴 적용 시 장점
 1. 코드의 가독성 증가
 2. 재사용성 높일 수 있다.
+
+<br />
+
+### 예제
+- Container
+```ts
+  const CounterPage = () => {
+    const dispatch = useDispatch();
+    const count = useSelector((state: RootState) => state.counter.count);
+
+    const onIncrease = useCallback((
+      e: React.MouseEvent<HTMLElement>
+    ) => {
+      e.preventDefault();
+
+      dispatch(counterIncrease());
+    }, []);
+
+    const onDecrease = useCallback((
+      e: React.MouseEvent<HTMLElement>
+    ) => {
+      e.preventDefault();
+
+      dispatch(counterDecrease());
+    }, []);
+
+    const onClear = useCallback((
+      e: React.MouseEvent<HTMLElement>
+    ) => {
+      e.preventDefault();
+
+      dispatch(counterClear());
+    }, []);
+
+    return (
+      <>
+        <Counter 
+          count={count}
+          onIncrease={onIncrease}
+          onDecrease={onDecrease}
+          onClear={onClear}
+        />
+      </>
+    );
+  };
+```
+- Presentational
+```ts
+  interface Props {
+    count: number;
+    onIncrease: (e: React.MouseEvent<HTMLElement>) => void;
+    onDecrease: (e: React.MouseEvent<HTMLElement>) => void;
+    onClear: (e: React.MouseEvent<HTMLElement>) => void;
+  }
+  const Counter = ({ count, onIncrease, onDecrease, onClear }: Props) => {
+    return (
+      <CounterContainer>
+        <div>
+          <p>카운터</p>
+          <button onClick={onIncrease}>증가</button>
+          <button onClick={onDecrease}>감소</button>
+          <button onClick={onClear}>초기화</button>
+        </div>
+        <p>{count}</p>
+      </CounterContainer>
+    );
+  };
+
+  export default Counter;
+```
 
 <br />
 
