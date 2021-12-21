@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { covidLiveRequest, covidAllCountryRequest } from '@redux/actionCreator/covid';
 import { RootState } from '@redux/reducers';
 import { ColumnWrapper } from '@components/Common';
-import { getLocalStorage, setLocalStorage } from '@utils/common';
 
 
 interface FormValues {
