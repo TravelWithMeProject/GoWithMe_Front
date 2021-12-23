@@ -3,10 +3,12 @@ import CovidList from '@components/Covid/List';
 import CovidForm from '@components/Covid/form';
 import useInput from '@hooks/useInputs';
 import { useDispatch, useSelector } from 'react-redux';
-import { covidLiveRequest, covidAllCountryRequest } from '@redux/actionCreator/covid';
+import {
+  covidLiveRequest,
+  covidAllCountryRequest,
+} from '@redux/actionCreator/covid';
 import { RootState } from '@redux/reducers';
 import { ColumnWrapper } from '@components/Common';
-
 
 interface FormValues {
   country: string;
@@ -14,24 +16,23 @@ interface FormValues {
 
 const CovidPage = () => {
   const dispatch = useDispatch();
-  const { 
-    LiveLoading, 
-    LiveData, 
-    AllCountryData, 
-    AllCountryLoading 
-  } = useSelector((state: RootState) => state.covid);
+  const { LiveLoading, LiveData, AllCountryData, AllCountryLoading } =
+    useSelector((state: RootState) => state.covid);
   const [formValues, onChange] = useInput<FormValues>({
-    country: "",
+    country: '',
   });
 
-  const getCovid = useCallback((e) => {
-    e.preventDefault();
-    const { country } = formValues;
+  const getCovid = useCallback(
+    (e) => {
+      e.preventDefault();
+      const { country } = formValues;
 
-    if (country) {
-      dispatch(covidLiveRequest({ country }));
-    }
-  }, [dispatch, formValues]);
+      if (country) {
+        dispatch(covidLiveRequest({ country }));
+      }
+    },
+    [dispatch, formValues],
+  );
 
   useEffect(() => {
     dispatch(covidAllCountryRequest());
@@ -45,7 +46,7 @@ const CovidPage = () => {
         <CovidForm
           allCountryData={AllCountryData}
           onChange={onChange}
-          getCovid={getCovid} 
+          getCovid={getCovid}
         />
       )}
       {LiveLoading ? (
