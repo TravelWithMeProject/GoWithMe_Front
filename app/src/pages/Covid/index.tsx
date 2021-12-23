@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import CovidList from '@components/Covid/List';
-import CovidForm from '@components/Covid/form';
+import CovidForm from '@components/Covid/Form';
 import useInput from '@hooks/useInputs';
 import { useDispatch, useSelector } from 'react-redux';
 import {
