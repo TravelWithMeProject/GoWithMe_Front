@@ -7,6 +7,7 @@ interface NestingRouterProps extends RouteProps {
 }
 
 const Router = () => {
+  console.log('test');
   const routerList: RouteProps[] = [
     {
       path: "/",
