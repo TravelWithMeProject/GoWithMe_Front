@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, RouteProps, Routes } from 'react-router-dom';
-import { Home, Counter, ParentNesting, ChildNesting, Covid } from "./router";
+import { Home, Counter, Covid } from "./router";
 
 interface NestingRouterProps extends RouteProps {
   parentPath: string;
@@ -20,19 +20,9 @@ const Router = () => {
       path: "/covid",
       element: <Covid />
     },
-    {
-      path: "/nesting/*",
-      element: <ParentNesting />
-    },
   ];
 
-  const nestingRouterList: NestingRouterProps[] = [
-    {
-      parentPath: "/nesting/*",
-      path: ":id",
-      element: <ChildNesting />
-    }
-  ];
+  const nestingRouterList: NestingRouterProps[] = [];
 
   return (
     <Routes>
