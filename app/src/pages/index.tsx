@@ -1,21 +1,32 @@
 import React from 'react';
 import { Route, RouteProps, Routes } from 'react-router-dom';
-import { Home, Covid } from "./router";
+import { Home, Covid, Travel, User, Community } from './router';
 
 interface NestingRouterProps extends RouteProps {
   parentPath: string;
 }
 
 const Router = () => {
-  console.log('test');
   const routerList: RouteProps[] = [
     {
-      path: "/",
+      path: '/',
       element: <Home />,
     },
     {
-      path: "/covid",
-      element: <Covid />
+      path: '/covid',
+      element: <Covid />,
+    },
+    {
+      path: '/trabel',
+      element: <Travel />,
+    },
+    {
+      path: '/covid',
+      element: <User />,
+    },
+    {
+      path: '/community',
+      element: <Community />,
     },
   ];
 
@@ -28,7 +39,7 @@ const Router = () => {
           <>
             {nestingRouterList.map((nestRouter, idx) => {
               const { parentPath, ...rest } = nestRouter;
-                
+
               if (parentPath === router.path) {
                 return <Route {...rest} key={idx} />;
               }
