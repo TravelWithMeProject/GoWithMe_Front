@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
 import StoryBookExample from '@components/StoryBookExample';
 
 export default {
-  title: 'Pages/Couner',
+  title: 'Components/StoryBookExample',
   component: StoryBookExample,
   // decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 };
