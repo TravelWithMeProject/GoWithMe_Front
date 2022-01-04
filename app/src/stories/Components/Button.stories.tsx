@@ -9,10 +9,10 @@ export default {
   // decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 };
 
-const Template: Story = ({ children }) => {
+const Template: Story = ({ children, contained }) => {
   return (
     <StoryWrapper>
-      <Button>{children}</Button>
+      <Button contained={contained}>{children}</Button>
     </StoryWrapper>
   );
 };
@@ -25,4 +25,5 @@ Default.args = {
 export const Example = Template.bind({});
 Example.args = {
   children: '가치가요',
+  contained: false,
 };
