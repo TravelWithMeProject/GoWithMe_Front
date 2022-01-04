@@ -16,7 +16,7 @@ const ContentBar = ({ open = false, title, content }: Props) => {
   }
   return (
     <StyledContentBar isopen={isopen}>
-      <Title onClick={changeopen}>{title}</Title>
+      <Title isopen={isopen} onClick={changeopen}>{title}</Title>
       <p>{content}</p>
     </StyledContentBar>
   );

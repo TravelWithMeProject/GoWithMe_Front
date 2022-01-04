@@ -10,7 +10,10 @@ export const StyledContentBar = styled.div<{
   }
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{
+  isopen: boolean;
+}>`
+  position: relative;
   display: flex;
   width: 100%;
   height: 30px;
@@ -28,5 +31,16 @@ export const Title = styled.div`
   &:active {
     background-color: rgb(0, 0, 0, 0.2);
   }
-
+  &:before {
+    content: 'V';
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    transition: all 0.3s;
+    transform: ${(props) => (props.isopen ? "scaleY(-1)" : "none")};
+  }
 `
