@@ -5,11 +5,21 @@ interface Props {
   children: React.ReactNode;
   contained?: boolean;
   round?: boolean;
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({ children, contained = true, round = true }: Props) => {
+const Button = ({
+  children,
+  contained = true,
+  round = true,
+  onClick,
+}: Props) => {
   return (
-    <StyledButton contained={contained} round={round}>
+    <StyledButton
+      onClick={(e) => onClick(e)}
+      contained={contained}
+      round={round}
+    >
       {children}
     </StyledButton>
   );
