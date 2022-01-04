@@ -10,10 +10,10 @@ export default {
   // decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 };
 
-const Template: Story = ({ title, content }) => {
+const Template: Story = ({open, title, content }) => {
   return (
     <StoryWrapper>
-      <ContentBar title={title} content={content} />
+      <ContentBar open={open} title={title} content={content} />
     </StoryWrapper>
   );
 };
@@ -24,8 +24,9 @@ Default.args = {
   content: '내용',
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const Open = Template.bind({});
+Open.args = {
   title: '준비물 체크리스트',
   content: '내용',
+  open: true,
 };

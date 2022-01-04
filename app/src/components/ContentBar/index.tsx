@@ -1,16 +1,23 @@
-import React from 'react';
-import { StyledContentBar } from './style';
+import React, {useState} from 'react';
+import { StyledContentBar, Title } from './style';
 
 interface Props {
-  title: string,
+  open: boolean;
+  title: string;
   content: React.ReactNode;
 }
 
-const ContentBar = ({ title, content }: Props) => {
+
+const ContentBar = ({ open = false, title, content }: Props) => {
+  
+  const [isopen, setIsopen] = useState(open);
+  const changeopen = () => {
+    setIsopen(!isopen);
+  }
   return (
-    <StyledContentBar>
-      <div>{title}</div>
-      {content}
+    <StyledContentBar isopen={isopen}>
+      <Title onClick={changeopen}>{title}</Title>
+      <p>{content}</p>
     </StyledContentBar>
   );
 };
