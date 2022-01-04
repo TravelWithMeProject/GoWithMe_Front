@@ -2,17 +2,17 @@ import React from 'react';
 import { StyledButton } from './style';
 
 interface Props {
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   contained?: boolean;
   round?: boolean;
-  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = ({
+  onClick,
   children,
   contained = true,
   round = true,
-  onClick,
 }: Props) => {
   return (
     <StyledButton
