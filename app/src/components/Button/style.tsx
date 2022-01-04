@@ -8,5 +8,12 @@ export const StyledButton = styled.button<{
   border-radius: ${(props) => (props.round ? 6 : 0)}px;
   background-color: ${(props) => (props.contained ? '#5A87FF' : '#fff')};
   color: ${(props) => (props.contained ? '#fff' : '#5A87FF')};
+  transition: 0.5s;
   cursor: pointer;
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:active {
+    filter: brightness(100%);
+  }
 `;
