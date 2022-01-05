@@ -28,3 +28,9 @@ Example.args = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
     console.log(e.target.checked),
 };
+
+export const Example2 = Template.bind({});
+Example2.args = {
+  children: '여행용 여권 발급하기',
+  onChange: () => console.log('체크함'),
+};

@@ -7,7 +7,7 @@ import {
 
 interface Props {
   children: React.ReactNode;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e?: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CheckBox = ({ children, onChange }: Props) => {
