@@ -7,6 +7,7 @@ interface Props {
   contained?: boolean;
   round?: boolean;
   width?: number;
+  size?: 'large' | 'small';
 }
 
 const Button = ({
@@ -15,6 +16,7 @@ const Button = ({
   contained = true,
   round = true,
   width = 100,
+  size = 'large',
 }: Props) => {
   return (
     <StyledButton
@@ -22,6 +24,7 @@ const Button = ({
       contained={contained}
       round={round}
       width={width}
+      size={size}
     >
       {children}
     </StyledButton>

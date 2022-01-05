@@ -8,7 +8,14 @@ export default {
   component: Button,
 };
 
-const Template: Story = ({ children, contained, round, onClick, width }) => {
+const Template: Story = ({
+  children,
+  contained,
+  round,
+  onClick,
+  width,
+  size,
+}) => {
   return (
     <StoryWrapper>
       <Button
@@ -16,6 +23,7 @@ const Template: Story = ({ children, contained, round, onClick, width }) => {
         round={round}
         onClick={onClick}
         width={width}
+        size={size}
       >
         {children}
       </Button>
@@ -45,4 +53,5 @@ Example2.args = {
   round: true,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   width: 30,
+  size: 'small',
 };
