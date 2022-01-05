@@ -1,7 +1,17 @@
-import { StyledCheckBox } from './style';
+import { StyledCheckBox, StyledCheckBoxLabel } from './style';
 
-const CheckBox = () => {
-  return <StyledCheckBox />;
+interface Props {
+  children: React.ReactNode;
+  id: string;
+}
+
+const CheckBox = ({ children, id }: Props) => {
+  return (
+    <>
+      <StyledCheckBox id={id} />
+      <StyledCheckBoxLabel htmlFor={id}>{children}</StyledCheckBoxLabel>
+    </>
+  );
 };
 
 export default CheckBox;
