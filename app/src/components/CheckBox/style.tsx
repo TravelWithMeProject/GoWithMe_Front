@@ -14,6 +14,8 @@ export const StyledCheckBoxLabel = styled.label`
 
 export const VisibleCheckBox = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20px;
   height: 20px;
   border: 1px solid black;

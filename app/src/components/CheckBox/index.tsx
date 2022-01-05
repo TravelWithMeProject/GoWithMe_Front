@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   InvisibleCheckBox,
   StyledCheckBoxLabel,
@@ -6,13 +7,21 @@ import {
 
 interface Props {
   children: React.ReactNode;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CheckBox = ({ children }: Props) => {
+const CheckBox = ({ children, onChange }: Props) => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const clickCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(!isChecked);
+    onChange(e);
+  };
+
   return (
     <StyledCheckBoxLabel>
-      <InvisibleCheckBox />
-      <VisibleCheckBox />
+      <InvisibleCheckBox onChange={(e) => clickCheckBox(e)} />
+      <VisibleCheckBox>{isChecked && '✔'}</VisibleCheckBox>
       {children}
     </StyledCheckBoxLabel>
   );
