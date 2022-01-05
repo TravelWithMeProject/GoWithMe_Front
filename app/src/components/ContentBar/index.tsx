@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyledContentBar, Title } from './style';
+import React, { useState } from 'react';
+import { StyledContentBar, Title, Content } from './style';
 
 interface Props {
   open: boolean;
@@ -14,10 +14,11 @@ const ContentBar = ({ open = false, title, content }: Props) => {
   const changeopen = () => {
     setIsopen(!isopen);
   }
+
   return (
-    <StyledContentBar isopen={isopen}>
+    <StyledContentBar>
       <Title isopen={isopen} onClick={changeopen}>{title}</Title>
-      <p>{content}</p>
+      <Content isopen={isopen}><p>{content}</p></Content>
     </StyledContentBar>
   );
 };

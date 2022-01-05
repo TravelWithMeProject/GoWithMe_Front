@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledContentBar = styled.div<{
-  isopen: boolean;
-}>`
+export const StyledContentBar = styled.div`
   width: 100%;
   height: 200px;
-  p {
-    display: ${(props) => (props.isopen ? "block" : "none")};
-  }
 `;
 
 export const Title = styled.div<{
@@ -43,4 +38,23 @@ export const Title = styled.div<{
     transition: all 0.3s;
     transform: ${(props) => (props.isopen ? "scaleY(-1)" : "none")};
   }
+`
+
+export const Content = styled.div<{
+  isopen: boolean;
+}>`
+  overflow: hidden;
+  max-height: ${(props) => (props.isopen ? "500px" : "0")};
+  margin: 0;
+  padding: 0 30px;
+  border: solid 1px #eeeeee;
+  border-top: 0;
+  background: #e8f4fc;
+  transition: max-height .5s;
+
+  p {
+    padding: 30px 0;
+    margin: 0;
+  }
+
 `
