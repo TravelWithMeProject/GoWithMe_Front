@@ -6,6 +6,7 @@ interface Props {
   children: React.ReactNode;
   contained?: boolean;
   round?: boolean;
+  width?: number;
 }
 
 const Button = ({
@@ -13,12 +14,14 @@ const Button = ({
   children,
   contained = true,
   round = true,
+  width = 100,
 }: Props) => {
   return (
     <StyledButton
       onClick={(e) => onClick(e)}
       contained={contained}
       round={round}
+      width={width}
     >
       {children}
     </StyledButton>

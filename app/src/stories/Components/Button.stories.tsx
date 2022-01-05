@@ -6,13 +6,17 @@ import Button from '@components/Button';
 export default {
   title: 'Components/Button',
   component: Button,
-  // decorators: [(Story: Story) => <Provider store={store}><Story /></Provider>]
 };
 
-const Template: Story = ({ children, contained, round, onClick }) => {
+const Template: Story = ({ children, contained, round, onClick, width }) => {
   return (
     <StoryWrapper>
-      <Button contained={contained} round={round} onClick={onClick}>
+      <Button
+        contained={contained}
+        round={round}
+        onClick={onClick}
+        width={width}
+      >
         {children}
       </Button>
     </StoryWrapper>
@@ -25,10 +29,20 @@ Default.args = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const Example1 = Template.bind({});
+Example1.args = {
   children: '가치가요',
-  contained: false,
+  contained: true,
   round: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  width: 50,
+};
+
+export const Example2 = Template.bind({});
+Example2.args = {
+  children: '가치가요',
+  contained: false,
+  round: true,
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  width: 30,
 };
