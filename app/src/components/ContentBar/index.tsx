@@ -5,10 +5,12 @@ interface Props {
   open: boolean;
   title: string;
   content: React.ReactNode;
+  minheight: number;
+  maxheight: number;
 }
 
 
-const ContentBar = ({ open = false, title, content }: Props) => {
+const ContentBar = ({ open = false, title, content, minheight = 0, maxheight = 500}: Props) => {
   
   const [isopen, setIsopen] = useState(open);
   const changeopen = () => {
@@ -18,7 +20,7 @@ const ContentBar = ({ open = false, title, content }: Props) => {
   return (
     <StyledContentBar>
       <Title isopen={isopen} onClick={changeopen}>{title}</Title>
-      <Content isopen={isopen}><p>{content}</p></Content>
+      <Content isopen={isopen} minheight={minheight} maxheight={maxheight}><p>{content}</p></Content>
     </StyledContentBar>
   );
 };

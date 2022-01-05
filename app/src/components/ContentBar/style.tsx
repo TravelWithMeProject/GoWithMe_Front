@@ -42,18 +42,21 @@ export const Title = styled.div<{
 
 export const Content = styled.div<{
   isopen: boolean;
+  minheight: number;
+  maxheight: number;
 }>`
   overflow: hidden;
-  max-height: ${(props) => (props.isopen ? "500px" : "0")};
+  min-height: ${(props) => (props.isopen ? props.minheight+"px" : "0")};
+  max-height: ${(props) => (props.isopen ? props.maxheight+"px" : "0")};
   margin: 0;
   padding: 0 30px;
   border: solid 1px #eeeeee;
   border-top: 0;
   background: #e8f4fc;
-  transition: max-height .5s;
+  transition: all .5s;
 
   p {
-    padding: 30px 0;
+    padding: 5px 0;
     margin: 0;
   }
 
