@@ -7,10 +7,10 @@ export default {
   component: CheckBox,
 };
 
-const Template: Story = ({ children, id }) => {
+const Template: Story = ({ children }) => {
   return (
     <StoryWrapper>
-      <CheckBox id={id}>{children}</CheckBox>
+      <CheckBox>{children}</CheckBox>
     </StoryWrapper>
   );
 };
@@ -18,11 +18,9 @@ const Template: Story = ({ children, id }) => {
 export const Default = Template.bind({});
 Default.args = {
   children: '여행용 여권 발급하기',
-  id: 'Default',
 };
 
 export const Example = Template.bind({});
 Example.args = {
   children: '여행용 여권 발급하기',
-  id: 'Example',
 };
