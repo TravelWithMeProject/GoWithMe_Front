@@ -44,6 +44,7 @@ Example1.args = {
   round: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   width: 50,
+  size: 'large',
 };
 
 export const Example2 = Template.bind({});
@@ -53,5 +54,14 @@ Example2.args = {
   round: true,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   width: 30,
+  size: 'small',
+};
+
+export const Example3 = Template.bind({});
+Example3.args = {
+  children: '가치가요',
+  contained: false,
+  round: false,
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   size: 'small',
 };
