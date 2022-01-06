@@ -1,3 +1,4 @@
+import Header from '@components/Header';
 import React from 'react';
 import { Route, RouteProps, Routes } from 'react-router-dom';
 import { Home, Covid, Travel, User, Community } from './router';
@@ -17,11 +18,11 @@ const Router = () => {
       element: <Covid />,
     },
     {
-      path: '/trabel',
+      path: '/travel',
       element: <Travel />,
     },
     {
-      path: '/covid',
+      path: '/user',
       element: <User />,
     },
     {
@@ -33,21 +34,24 @@ const Router = () => {
   const nestingRouterList: NestingRouterProps[] = [];
 
   return (
-    <Routes>
-      {routerList.map((router, idx) => (
-        <Route {...router} key={idx}>
-          <>
-            {nestingRouterList.map((nestRouter, idx) => {
-              const { parentPath, ...rest } = nestRouter;
+    <>
+      <Header />
+      <Routes>
+        {routerList.map((router, idx) => (
+          <Route {...router} key={idx}>
+            <>
+              {nestingRouterList.map((nestRouter, idx) => {
+                const { parentPath, ...rest } = nestRouter;
 
-              if (parentPath === router.path) {
-                return <Route {...rest} key={idx} />;
-              }
-            })}
-          </>
-        </Route>
-      ))}
-    </Routes>
+                if (parentPath === router.path) {
+                  return <Route {...rest} key={idx} />;
+                }
+              })}
+            </>
+          </Route>
+        ))}
+      </Routes>
+    </>
   );
 };
 
