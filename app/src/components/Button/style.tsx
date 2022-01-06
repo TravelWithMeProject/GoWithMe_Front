@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button<{
   varient: string;
-  round: boolean;
+  border: string;
   width: string | undefined;
   size: string;
 }>`
@@ -10,7 +10,7 @@ export const StyledButton = styled.button<{
   transition: 0.5s;
   width: ${(props) => (props.width ? props.width : 'auto')};
   height: ${(props) => (props.size === 'large' ? 48 : 24)}px;
-  border-radius: ${(props) => (props.round ? 6 : 0)}px;
+  border-radius: ${(props) => (props.border === 'round' ? 6 : 0)}px;
   background-color: ${(props) =>
     props.varient === 'contained' ? '#5A87FF' : '#fff'};
   color: ${(props) => (props.varient === 'contained' ? '#fff' : '#5A87FF')};
