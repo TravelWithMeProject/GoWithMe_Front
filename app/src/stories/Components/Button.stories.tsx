@@ -10,8 +10,8 @@ export default {
 
 const Template: Story = ({
   children,
-  contained,
-  round,
+  varient,
+  border,
   onClick,
   width,
   size,
@@ -19,8 +19,8 @@ const Template: Story = ({
   return (
     <StoryWrapper>
       <Button
-        contained={contained}
-        round={round}
+        varient={varient}
+        border={border}
         onClick={onClick}
         width={width}
         size={size}
@@ -40,8 +40,8 @@ Default.args = {
 export const Example1 = Template.bind({});
 Example1.args = {
   children: '가치가요',
-  contained: true,
-  round: false,
+  varient: 'contained',
+  border: 'rect',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   width: '50%',
   size: 'large',
@@ -50,8 +50,8 @@ Example1.args = {
 export const Example2 = Template.bind({});
 Example2.args = {
   children: '가치가요',
-  contained: false,
-  round: true,
+  varient: 'contained',
+  border: 'round',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   width: '30%',
   size: 'small',
@@ -60,8 +60,8 @@ Example2.args = {
 export const Example3 = Template.bind({});
 Example3.args = {
   children: '가치가요',
-  contained: false,
-  round: false,
+  varient: 'contained',
+  border: 'rect',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   size: 'small',
 };
