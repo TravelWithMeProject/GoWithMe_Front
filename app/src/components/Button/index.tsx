@@ -6,16 +6,16 @@ interface Props {
   children: React.ReactNode;
   contained?: boolean;
   round?: boolean;
-  width?: number;
+  width?: string;
   size?: 'large' | 'small';
 }
 
 const Button = ({
   onClick,
   children,
+  width,
   contained = true,
   round = true,
-  width = 100,
   size = 'large',
 }: Props) => {
   return (
