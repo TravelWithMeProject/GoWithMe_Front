@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import { StyledContentBar, Title, Content } from './style';
+import { StyledContentBar, TitleContainer, ContentsContainer } from './style';
 
 interface Props {
-  open: boolean;
+  children: React.ReactNode;
   title: string;
-  content: React.ReactNode;
-  minheight: number;
-  maxheight: number;
+  preview: boolean;
 }
 
 
-const ContentBar = ({ open = false, title, content, minheight = 0, maxheight = 500}: Props) => {
-  
-  const [isopen, setIsopen] = useState(open);
-  const changeopen = () => {
-    setIsopen(!isopen);
-  }
+const ContentBar = ({ preview = false, title, children }: Props) => {
+
+  const [isOpen, setIsOpen] = useState(preview);
 
   return (
     <StyledContentBar>
-      <Title isopen={isopen} onClick={changeopen}>{title}</Title>
-      <Content isopen={isopen} minheight={minheight} maxheight={maxheight}><p>{content}</p></Content>
+      <TitleContainer onClick={() => setIsOpen(!isOpen)}>
+        <h3>{title}</h3>
+        <button>{isOpen ? '↑' : '↓'}</button>
+      </TitleContainer>
+      <ContentsContainer>
+        <div className={isOpen ? 'active' : 'hidden'}>{children}</div>
+      </ContentsContainer>
     </StyledContentBar>
   );
 };
