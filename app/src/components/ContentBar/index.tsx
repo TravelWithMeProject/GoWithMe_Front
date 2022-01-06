@@ -7,9 +7,7 @@ interface Props {
   preview: boolean;
 }
 
-
 const ContentBar = ({ preview = false, title, children }: Props) => {
-
   const [isOpen, setIsOpen] = useState(preview);
 
   return (
