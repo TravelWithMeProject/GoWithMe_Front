@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button<{
-  contained: boolean;
+  varient: string;
   round: boolean;
   width: string | undefined;
   size: string;
@@ -11,8 +11,9 @@ export const StyledButton = styled.button<{
   width: ${(props) => (props.width ? props.width : 'auto')};
   height: ${(props) => (props.size === 'large' ? 48 : 24)}px;
   border-radius: ${(props) => (props.round ? 6 : 0)}px;
-  background-color: ${(props) => (props.contained ? '#5A87FF' : '#fff')};
-  color: ${(props) => (props.contained ? '#fff' : '#5A87FF')};
+  background-color: ${(props) =>
+    props.varient === 'contained' ? '#5A87FF' : '#fff'};
+  color: ${(props) => (props.varient === 'contained' ? '#fff' : '#5A87FF')};
   cursor: pointer;
   &:hover {
     filter: brightness(90%);
