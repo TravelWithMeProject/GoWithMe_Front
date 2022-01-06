@@ -43,7 +43,7 @@ Example1.args = {
   contained: true,
   round: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
-  width: 50,
+  width: '50%',
   size: 'large',
 };
 
@@ -53,7 +53,7 @@ Example2.args = {
   contained: false,
   round: true,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
-  width: 30,
+  width: '30%',
   size: 'small',
 };
 
