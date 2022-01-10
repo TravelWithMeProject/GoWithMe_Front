@@ -8,13 +8,16 @@ export default {
   component: MainPageLayout,
 };
 
-const Template: Story = ({}) => {
+const Template: Story = ({ identity, form }) => {
   return (
     <StoryWrapper>
-      <MainPageLayout />
+      <MainPageLayout identity={identity} form={form} />
     </StoryWrapper>
   );
 };
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  identity: <div>identity</div>,
+  form: <div>form</div>,
+};
