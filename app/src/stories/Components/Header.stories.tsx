@@ -9,7 +9,11 @@ export default {
 };
 
 const Template: Story = ({}) => {
-  return <StoryWrapper>{/* <Header /> */}</StoryWrapper>;
+  return (
+    <StoryWrapper>
+      <Header />
+    </StoryWrapper>
+  );
 };
 
 export const Default = Template.bind({});
