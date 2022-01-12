@@ -41,6 +41,9 @@ export const TitleContainer = styled.div`
 
 export const ContentsContainer = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 
   & > div {
