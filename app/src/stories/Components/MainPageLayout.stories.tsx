@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
 import MainPageLayout from '@components/MainPageLayout';
@@ -18,16 +17,17 @@ const Identity = styled.div`
 const Example = () => {
   return <Identity />;
 };
-const Template: Story = ({ identity, form }) => {
+
+const Template: Story = () => {
   return (
     <StoryWrapper>
-      <MainPageLayout identity={identity} form={form} />
+      <MainPageLayout>
+        <Example />
+        <div>form</div>
+      </MainPageLayout>
     </StoryWrapper>
   );
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  identity: <Example />,
-  form: <div>form</div>,
-};
+Default.args = {};

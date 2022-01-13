@@ -1,17 +1,11 @@
 import React from 'react';
-import { LoginLayout, MainLayout, Wrap } from './styles';
+import { StyledMainPageLayout } from './styles';
 
 interface Props {
-  identity?: React.Component;
-  form?: React.Component;
+  children: React.ReactNode;
 }
 
-const MainPageLayout = ({ identity, form }: Props) => {
-  return (
-    <Wrap>
-      <MainLayout>{identity}</MainLayout>
-      <LoginLayout>{form}</LoginLayout>
-    </Wrap>
-  );
+const MainPageLayout = ({ children }: Props) => {
+  return <StyledMainPageLayout>{children}</StyledMainPageLayout>;
 };
 export default MainPageLayout;
