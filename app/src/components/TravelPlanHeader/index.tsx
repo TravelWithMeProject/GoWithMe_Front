@@ -13,9 +13,9 @@ interface Props {
     startDate: string;
     endDate: string;
   };
-  onClickUpdate: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  onClickClone: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  onClickDelete: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickUpdate: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickClone: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickDelete: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const TravelPlanHeader = ({
@@ -108,29 +108,17 @@ const TravelPlanHeader = ({
         </ul>
         <ul>
           <li>
-            <Button
-              border="round"
-              size="small"
-              onClick={(e) => onClickUpdate(e)}
-            >
+            <Button border="round" size="small" onClick={onClickUpdate}>
               수정
             </Button>
           </li>
           <li>
-            <Button
-              border="round"
-              size="small"
-              onClick={(e) => onClickClone(e)}
-            >
+            <Button border="round" size="small" onClick={onClickClone}>
               복제
             </Button>
           </li>
           <li>
-            <Button
-              border="round"
-              size="small"
-              onClick={(e) => onClickDelete(e)}
-            >
+            <Button border="round" size="small" onClick={onClickDelete}>
               삭제
             </Button>
           </li>
