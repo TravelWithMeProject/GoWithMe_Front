@@ -1,4 +1,5 @@
 import Button from '@components/Button';
+import { useCallback, useMemo } from 'react';
 import {
   StyledTravelPlanHeader,
   TitleWrapper,
@@ -25,11 +26,32 @@ const TravelPlanHeader = ({
   onClickClone,
   onClickDelete,
 }: Props) => {
+  const startDate = {
+    year: Number(travelDate?.startDate.substring(0, 4)),
+    mounth: Number(travelDate?.startDate.substring(5, 7)) - 1,
+    date: Number(travelDate?.startDate.substring(8, 10)),
+  };
+
+  const calculateDday = useCallback(() => {
+    const today = new Date();
+    const travelDay = new Date(
+      startDate.year,
+      startDate.mounth,
+      startDate.date,
+    );
+    const gap = today.getTime() - travelDay.getTime();
+    return Math.floor(gap / (1000 * 60 * 60 * 24)) * -1;
+  }, [startDate]);
+
+  const dDay = useMemo(() => {
+    return calculateDday();
+  }, [calculateDday]);
+
   return (
     <StyledTravelPlanHeader>
       <TitleWrapper>
         <h1>{title}</h1>
-        <h3>두근두근... 출발까지 D-00</h3>
+        <h3>두근두근... 출발까지 D-{dDay}</h3>
       </TitleWrapper>
       <TravelInfoWrapper>
         <ul>
