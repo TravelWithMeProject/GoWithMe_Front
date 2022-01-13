@@ -9,9 +9,10 @@ interface Props {
   children: React.ReactNode;
   value: number | string;
   onChange: (e?: React.ChangeEvent<HTMLInputElement>) => void;
+  shape?: 'rect' | 'round';
 }
 
-const CheckBox = ({ value, children, onChange }: Props) => {
+const CheckBox = ({ value, children, onChange, shape = 'rect' }: Props) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const clickCheckBox = useCallback(
@@ -25,7 +26,7 @@ const CheckBox = ({ value, children, onChange }: Props) => {
   return (
     <StyledCheckBoxLabel>
       <InvisibleCheckBox value={value} onChange={(e) => clickCheckBox(e)} />
-      <VisibleCheckBox>{isChecked && '✔'}</VisibleCheckBox>
+      <VisibleCheckBox shape={shape}>{isChecked && '✔'}</VisibleCheckBox>
       {children}
     </StyledCheckBoxLabel>
   );

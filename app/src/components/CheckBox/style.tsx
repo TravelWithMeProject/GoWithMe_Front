@@ -13,13 +13,15 @@ export const StyledCheckBoxLabel = styled.label`
   cursor: pointer;
 `;
 
-export const VisibleCheckBox = styled.div`
+export const VisibleCheckBox = styled.div<{
+  shape: string;
+}>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20px;
   height: 20px;
   border: 1px solid #747474;
-  border-radius: 50%;
+  border-radius: ${(props) => props.shape === 'round' && '50%'};
   margin-right: 8px;
 `;
