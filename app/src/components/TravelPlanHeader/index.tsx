@@ -7,9 +7,24 @@ import {
 
 interface Props {
   title?: string;
+  destination?: string;
+  travelDate?: {
+    startDate: string;
+    endDate: string;
+  };
+  onClickUpdate: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickClone: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickDelete: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const TravelPlanHeader = ({ title = '내 여행 일정 이름' }: Props) => {
+const TravelPlanHeader = ({
+  title = '내 여행 일정 이름',
+  destination,
+  travelDate,
+  onClickUpdate,
+  onClickClone,
+  onClickDelete,
+}: Props) => {
   return (
     <StyledTravelPlanHeader>
       <TitleWrapper>
@@ -19,25 +34,43 @@ const TravelPlanHeader = ({ title = '내 여행 일정 이름' }: Props) => {
       <TravelInfoWrapper>
         <ul>
           <li>
-            <span>여행지 | 부산 제주</span>
+            <span>
+              {destination ? ` 여행지 | ${destination}` : '여행지를 추가하세요'}
+            </span>
           </li>
           <li>
-            <span>여행 날짜 | 2022.01.01 - 2022.01.10</span>
+            <span>
+              {travelDate
+                ? `여행 날짜 | ${travelDate.startDate} - ${travelDate.endDate}`
+                : '여행 날짜를 입력하세요'}
+            </span>
           </li>
         </ul>
         <ul>
           <li>
-            <Button border="round" size="small" onClick={() => {}}>
+            <Button
+              border="round"
+              size="small"
+              onClick={(e) => onClickUpdate(e)}
+            >
               수정
             </Button>
           </li>
           <li>
-            <Button border="round" size="small" onClick={() => {}}>
+            <Button
+              border="round"
+              size="small"
+              onClick={(e) => onClickClone(e)}
+            >
               복제
             </Button>
           </li>
           <li>
-            <Button border="round" size="small" onClick={() => {}}>
+            <Button
+              border="round"
+              size="small"
+              onClick={(e) => onClickDelete(e)}
+            >
               삭제
             </Button>
           </li>
