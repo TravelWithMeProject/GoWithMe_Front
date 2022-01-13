@@ -9,9 +9,9 @@ export const StyledTravelPlanHeader = styled.header`
   padding: 0 102px;
   .arrow {
     width: fit-content;
-    position: relative;
-    top: 60px;
-    left: -50px;
+    position: absolute;
+    top: 20px;
+    left: -60px;
     cursor: pointer;
   }
 `;
@@ -19,6 +19,7 @@ export const StyledTravelPlanHeader = styled.header`
 export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   h1 {
     font-size: 3em;
     color: #5a87ff;
