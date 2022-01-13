@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledButton } from './style';
 
 interface Props {
-  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   width?: string;
   border?: 'round' | 'rect';
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Button = ({
-  onClick,
+  onClick = () => {},
   children,
   width,
   border = 'rect',
