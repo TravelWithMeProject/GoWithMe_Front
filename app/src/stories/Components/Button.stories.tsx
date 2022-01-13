@@ -62,6 +62,5 @@ Example3.args = {
   children: '가치가요',
   varient: 'contained',
   border: 'rect',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   size: 'small',
 };
