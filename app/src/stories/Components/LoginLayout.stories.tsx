@@ -8,10 +8,10 @@ export default {
   component: LoginLayout,
 };
 
-const Template: Story = ({}) => {
+const Template: Story = ({ children }) => {
   return (
     <StoryWrapper>
-      <LoginLayout></LoginLayout>
+      <LoginLayout>{children}</LoginLayout>
     </StoryWrapper>
   );
 };
