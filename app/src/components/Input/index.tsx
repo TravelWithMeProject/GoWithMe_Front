@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyledInput } from './style';
 
 interface Props {
@@ -7,8 +7,7 @@ interface Props {
   value: string;
 }
 
-const Input = ({ type="text", placeholder="", value }: Props) => {
-
+const Input = ({ type = 'text', placeholder = '', value = '' }: Props) => {
   const [Value, setValue] = useState(value);
 
   return (
@@ -16,7 +15,7 @@ const Input = ({ type="text", placeholder="", value }: Props) => {
       type={type}
       placeholder={placeholder}
       value={Value}
-      onChange={(e)=>setValue(e.target.value)}
+      onChange={(e) => setValue(e.target.value)}
     />
   );
 };
