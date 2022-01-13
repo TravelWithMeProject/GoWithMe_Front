@@ -2,6 +2,8 @@ import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
 import MainPageLayout from '@components/MainPageLayout';
 import styled from 'styled-components';
+import LoginLayout from '@components/LoginLayout';
+import Button from '@components/Button';
 
 export default {
   title: 'Components/MainPageLayout',
@@ -23,7 +25,13 @@ const Template: Story = () => {
     <StoryWrapper>
       <MainPageLayout>
         <Example />
-        <div>form</div>
+        <LoginLayout>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <input></input>
+            <input></input>
+            <Button onClick={() => {}}>로그인</Button>
+          </div>
+        </LoginLayout>
       </MainPageLayout>
     </StoryWrapper>
   );
