@@ -8,15 +8,13 @@ export default {
   component: Navigation,
 };
 
-const Template: Story = ({ width }) => {
+const Template: Story = ({}) => {
   return (
     <StoryWrapper>
-      <Navigation width={width} />
+      <Navigation />
     </StoryWrapper>
   );
 };
 
-export const example = Template.bind({});
-example.args = {
-  width: 40,
-};
+export const Default = Template.bind({});
+Default.args = {};

@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
-import { Button, NavItem, NavItemContainer, StyledNavigation } from './style';
+import React, { useCallback, useState } from 'react';
+import {
+  NavItem,
+  NavItemContainer,
+  StyledNavigation,
+  ArrowButton,
+} from './style';
 
-interface Props {
-  width: number;
-}
-
-const Navigation = ({ width }: Props) => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const onToggle = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
 
   return (
     <>
-      <Button
-        location={isOpen ? 300 : 15}
-        color="#747474"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? '<' : '>'}
-      </Button>
-      <StyledNavigation color="#C4C4C4" isOpen={isOpen} width={width}>
+      {!isOpen && (
+        <ArrowButton className="arrow-right" onClick={onToggle}>
+          {'>'}
+        </ArrowButton>
+      )}
+      <StyledNavigation className={isOpen ? 'active' : ''}>
         <NavItemContainer>
-          <NavItem color="#E9E9E9">내 여행 일정 이름 1</NavItem>
-          <NavItem color="#E9E9E9">내 여행 일정 이름 1</NavItem>
-          <NavItem color="#E9E9E9">내 여행 일정 이름 1</NavItem>
+          <NavItem>내 여행 일정 이름 1</NavItem>
+          <NavItem>내 여행 일정 이름 1</NavItem>
+          <NavItem>내 여행 일정 이름 1</NavItem>
         </NavItemContainer>
+        <ArrowButton className="arrow-left" onClick={onToggle}>
+          {'<'}
+        </ArrowButton>
       </StyledNavigation>
     </>
   );
