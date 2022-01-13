@@ -4,7 +4,7 @@ import { StyledContentBar, TitleContainer, ContentsContainer } from './style';
 interface Props {
   children: React.ReactNode;
   title: string;
-  preview: boolean;
+  preview?: boolean;
 }
 
 const ContentBar = ({ preview = false, title, children }: Props) => {
