@@ -5,6 +5,7 @@ import {
   TitleWrapper,
   TravelInfoWrapper,
 } from './styles';
+import arrowIcon from '@static/assets/arrow-icon.svg';
 
 interface Props {
   title?: string;
@@ -13,9 +14,9 @@ interface Props {
     startDate: string;
     endDate: string;
   };
-  onClickUpdate: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onClickClone: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onClickDelete: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickUpdate: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickClone: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickDelete: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const TravelPlanHeader = ({
@@ -50,44 +51,9 @@ const TravelPlanHeader = ({
   return (
     <StyledTravelPlanHeader>
       <TitleWrapper>
-        <div className="arrow">
-          <svg
-            width="25"
-            height="26"
-            viewBox="0 0 25 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 23.8516L13.169 12.9256"
-              stroke="#747474"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M2 2L13.169 12.926"
-              stroke="#747474"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.1375 23.8516L23.3064 12.9256"
-              stroke="#747474"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.1375 2L23.3064 12.926"
-              stroke="#747474"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
+        {/* <div className="arrow">
+          <img src={arrowIcon} alt="화살표" />
+        </div> */}
         <h1>{title}</h1>
         <h3>두근두근... 출발까지 D-{dDay}</h3>
       </TitleWrapper>
