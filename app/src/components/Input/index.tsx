@@ -3,10 +3,10 @@ import { StyledInput } from './style';
 
 interface Props {
   name: string;
-  type?: string;
   placeholder: string;
   value: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = ({
@@ -16,19 +16,13 @@ const Input = ({
   value = '',
   onChange,
 }: Props) => {
-  const [inputValue, setInputValue] = useState<string>(value);
-
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    onChange && onChange(e);
-  };
   return (
     <StyledInput
-      name={name}
       type={type}
+      name={name}
       placeholder={placeholder}
       value={value}
-      onChange={changeHandler}
+      onChange={onChange}
     />
   );
 };
