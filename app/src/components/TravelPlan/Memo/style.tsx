@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
 export const MemoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 30px;
-  width: 800px;
+  width: 100%;
+
   textarea {
     border: none;
-    width: calc(100% - 60px);
-    margin: auto;
-    padding: 5px;
+    width: 100%;
+    padding: 10px;
     height: 200px;
     outline-color: white;
+    resize: none;
   }
 `;
