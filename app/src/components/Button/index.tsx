@@ -2,21 +2,23 @@ import React, { useMemo } from 'react';
 import { StyledButton } from './style';
 
 interface Props {
-  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
+  disabled?: boolean;
   fill?: boolean;
   border?: 'round' | 'rect';
   varient?: 'contained' | 'outlined';
   size?: 'large' | 'medium' | 'small';
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = ({
-  onClick = () => {},
   children,
+  disabled = false,
   fill = false,
   border = 'rect',
   varient = 'contained',
   size = 'large',
+  onClick = () => {},
 }: Props) => {
   const buttonHeight = useMemo(() => {
     switch (size) {
@@ -60,6 +62,7 @@ const Button = ({
       buttonHeight={buttonHeight}
       buttonPadding={buttonPadding}
       fontSize={fontSize}
+      disabled={disabled}
     >
       {children}
     </StyledButton>

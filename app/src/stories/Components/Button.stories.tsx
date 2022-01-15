@@ -15,6 +15,7 @@ const Template: Story = ({
   onClick,
   fill,
   size,
+  disabled,
 }) => {
   return (
     <StoryWrapper>
@@ -24,6 +25,7 @@ const Template: Story = ({
         onClick={onClick}
         fill={fill}
         size={size}
+        disabled={disabled}
       >
         {children}
       </Button>
@@ -63,4 +65,5 @@ Example3.args = {
   varient: 'contained',
   border: 'rect',
   size: 'small',
+  disabled: true,
 };

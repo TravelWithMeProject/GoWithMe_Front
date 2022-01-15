@@ -7,6 +7,7 @@ export const StyledButton = styled.button<{
   buttonHeight: string;
   buttonPadding: string;
   fontSize: string;
+  disabled: boolean;
 }>`
   border: 1px solid #5a87ff;
   transition: 0.5s;
@@ -18,9 +19,9 @@ export const StyledButton = styled.button<{
   color: ${(props) => (props.varient === 'contained' ? '#fff' : '#5A87FF')};
   padding: ${(props) => (props.fill ? 0 : props.buttonPadding)};
   font-size: ${(props) => props.fontSize};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   &:hover {
-    filter: brightness(90%);
+    filter: ${(props) => !props.disabled && 'brightness(90%)'};
   }
   &:active {
     filter: brightness(100%);
