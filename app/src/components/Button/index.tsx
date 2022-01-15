@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyledButton } from './style';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   fill?: boolean;
   border?: 'round' | 'rect';
   varient?: 'contained' | 'outlined';
-  size?: 'large' | 'small';
+  size?: 'large' | 'medium' | 'small';
 }
 
 const Button = ({
@@ -18,13 +18,24 @@ const Button = ({
   varient = 'contained',
   size = 'large',
 }: Props) => {
+  const buttonHeight = useMemo(() => {
+    switch (size) {
+      case 'large':
+        return '48px';
+      case 'medium':
+        return '36px';
+      case 'small':
+        return '24px';
+    }
+  }, [size]);
+
   return (
     <StyledButton
       onClick={(e) => onClick(e)}
       varient={varient}
       border={border}
       fill={fill}
-      size={size}
+      buttonHeight={buttonHeight}
     >
       {children}
     </StyledButton>
