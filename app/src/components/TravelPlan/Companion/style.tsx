@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
-export const CompanionContainer = styled.div`
+export const CompanionWrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   padding: 30px;
-  width: 800px;
 
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+  p {
+    text-align: center;
+    color: #747474;
   }
+`;
+
+export const ContentsContainer = styled.div`
+  margin-bottom: 50px;
 `;

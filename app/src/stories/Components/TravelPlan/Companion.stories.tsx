@@ -1,17 +1,17 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import Companion from '@components/TravelPlan/Companion';
+import TravelPlanCompanion from '@components/TravelPlan/Companion';
 
 export default {
   title: 'Components/TravlePlan/Companion',
-  component: Companion,
+  component: TravelPlanCompanion,
 };
 
-const Template: Story = ({ width, height }) => {
+const Template: Story = ({}) => {
   return (
     <StoryWrapper>
-      <Companion />
+      <TravelPlanCompanion />
     </StoryWrapper>
   );
 };
