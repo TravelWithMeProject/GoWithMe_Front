@@ -36,9 +36,9 @@ export const TravelInfoWrapper = styled.div`
   ul {
     display: flex;
     li {
-      margin-right: 27px;
+      margin-right: 14px;
     }
-    li:nth-last-of-type(1) {
+    li:last-of-type {
       margin-right: 0;
     }
   }

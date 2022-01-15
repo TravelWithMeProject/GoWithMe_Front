@@ -5,7 +5,6 @@ import {
   TitleWrapper,
   TravelInfoWrapper,
 } from './styles';
-import arrowIcon from '@static/assets/arrow-icon-right.svg';
 
 interface Props {
   title?: string;

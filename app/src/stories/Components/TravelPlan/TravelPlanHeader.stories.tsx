@@ -1,10 +1,10 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import TravelPlanHeader from '@components/TravelPlanHeader';
+import TravelPlanHeader from '@components/TravelPlan/Header';
 
 export default {
-  title: 'Components/TravelPlanHeader',
+  title: 'Components/TravelPlan/Header',
   component: TravelPlanHeader,
 };
 
