@@ -20,3 +20,7 @@ export const Wrapper = styled.div`
 export const ColumnWrapper = styled(Wrapper)`
   flex-direction: column;
 `;
+
+export const FullWidthWrapper = styled(Wrapper)`
+  padding: 0;
+`;
