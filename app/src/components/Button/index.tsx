@@ -40,6 +40,17 @@ const Button = ({
     }
   }, [size]);
 
+  const fontSize = useMemo(() => {
+    switch (size) {
+      case 'large':
+        return '1em';
+      case 'medium':
+        return '0.875em';
+      case 'small':
+        return '0.875em';
+    }
+  }, [size]);
+
   return (
     <StyledButton
       onClick={(e) => onClick(e)}
@@ -48,6 +59,7 @@ const Button = ({
       fill={fill}
       buttonHeight={buttonHeight}
       buttonPadding={buttonPadding}
+      fontSize={fontSize}
     >
       {children}
     </StyledButton>
