@@ -5,6 +5,7 @@ export const StyledButton = styled.button<{
   border: string;
   fill: boolean;
   buttonHeight: string;
+  buttonPadding: string;
 }>`
   border: 1px solid #5a87ff;
   transition: 0.5s;
@@ -14,6 +15,7 @@ export const StyledButton = styled.button<{
   background-color: ${(props) =>
     props.varient === 'contained' ? '#5A87FF' : '#fff'};
   color: ${(props) => (props.varient === 'contained' ? '#fff' : '#5A87FF')};
+  padding: ${(props) => (props.fill ? 0 : props.buttonPadding)};
   cursor: pointer;
   &:hover {
     filter: brightness(90%);

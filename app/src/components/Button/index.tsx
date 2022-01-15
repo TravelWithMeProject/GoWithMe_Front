@@ -29,6 +29,17 @@ const Button = ({
     }
   }, [size]);
 
+  const buttonPadding = useMemo(() => {
+    switch (size) {
+      case 'large':
+        return '0px 20px';
+      case 'medium':
+        return '0px 16px';
+      case 'small':
+        return '0px 12px';
+    }
+  }, [size]);
+
   return (
     <StyledButton
       onClick={(e) => onClick(e)}
@@ -36,6 +47,7 @@ const Button = ({
       border={border}
       fill={fill}
       buttonHeight={buttonHeight}
+      buttonPadding={buttonPadding}
     >
       {children}
     </StyledButton>
