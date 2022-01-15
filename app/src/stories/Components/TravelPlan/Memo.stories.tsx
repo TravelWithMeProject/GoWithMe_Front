@@ -1,17 +1,17 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import Materials from '@components/TravelPlan/Materials';
+import Memo from '@components/TravelPlan/Memo';
 
 export default {
-  title: 'Components/TravelPlan/Materials',
-  component: Materials,
+  title: 'Components/TravlePlan/Memo',
+  component: Memo,
 };
 
-const Template: Story = ({}) => {
+const Template: Story = ({ width, height }) => {
   return (
     <StoryWrapper>
-      <Materials />
+      <Memo />
     </StoryWrapper>
   );
 };
