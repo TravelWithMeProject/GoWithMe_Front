@@ -1,7 +1,15 @@
 import React from 'react';
 import Header from '@components/Header';
 import { Route, RouteProps, Routes, useLocation } from 'react-router-dom';
-import { Home, Covid, Travel, User, Community } from './router';
+import {
+  Home,
+  Covid,
+  TravelPlan,
+  User,
+  Community,
+  FindId,
+  FindPassword,
+} from './router';
 
 const Router = () => {
   const location = useLocation();
@@ -16,7 +24,7 @@ const Router = () => {
     },
     {
       path: '/travel',
-      element: <Travel />,
+      element: <TravelPlan />,
     },
     {
       path: '/user',
@@ -25,6 +33,14 @@ const Router = () => {
     {
       path: '/community',
       element: <Community />,
+    },
+    {
+      path: '/find/id',
+      element: <FindId />,
+    },
+    {
+      path: '/find/password',
+      element: <FindPassword />,
     },
   ];
 

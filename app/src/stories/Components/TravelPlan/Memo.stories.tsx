@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { StoryWrapper } from '@components/Common';
-import Memo from '@components/TravelPlan/Memo';
+import TravelPlanMemo from '@components/TravelPlan/Memo';
 
 export default {
-  title: 'Components/TravlePlan/Memo',
-  component: Memo,
+  title: 'Components/TravelPlan/Memo',
+  component: TravelPlanMemo,
 };
 
-const Template: Story = ({ width, height }) => {
+const Template: Story = () => {
+  const [value, setValue] = useState('');
+
+  const onChange = useCallback((e) => {
+    const { value } = e.target;
+    setValue(value);
+  }, []);
+
   return (
     <StoryWrapper>
-      <Memo />
+      <TravelPlanMemo value={value} onChange={onChange} />
     </StoryWrapper>
   );
 };
