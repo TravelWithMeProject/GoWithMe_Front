@@ -4,7 +4,7 @@ import { StyledButton } from './style';
 interface Props {
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
-  width?: string;
+  fill?: boolean;
   border?: 'round' | 'rect';
   varient?: 'contained' | 'outlined';
   size?: 'large' | 'small';
@@ -13,7 +13,7 @@ interface Props {
 const Button = ({
   onClick = () => {},
   children,
-  width,
+  fill = false,
   border = 'rect',
   varient = 'contained',
   size = 'large',
@@ -23,7 +23,7 @@ const Button = ({
       onClick={(e) => onClick(e)}
       varient={varient}
       border={border}
-      width={width}
+      fill={fill}
       size={size}
     >
       {children}
