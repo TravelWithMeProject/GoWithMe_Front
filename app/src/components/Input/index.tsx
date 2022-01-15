@@ -1,21 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { StyledInput } from './style';
 
 interface Props {
-  type: string;
+  name: string;
+  type?: string;
   placeholder: string;
   value: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ type = 'text', placeholder = '', value = '' }: Props) => {
-  const [Value, setValue] = useState(value);
+const Input = ({
+  name,
+  type = 'text',
+  placeholder = '',
+  value = '',
+  onChange,
+}: Props) => {
+  const [inputValue, setInputValue] = useState<string>(value);
 
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    onChange && onChange(e);
+  };
   return (
     <StyledInput
+      name={name}
       type={type}
       placeholder={placeholder}
-      value={Value}
-      onChange={(e) => setValue(e.target.value)}
+      value={value}
+      onChange={changeHandler}
     />
   );
 };
