@@ -4,7 +4,7 @@ import { StoryWrapper } from '@components/Common';
 import Memo from '@components/TravelPlan/Memo';
 
 export default {
-  title: 'Components/TravlePlan/Memo',
+  title: 'Components/TravelPlan/Memo',
   component: Memo,
 };
 

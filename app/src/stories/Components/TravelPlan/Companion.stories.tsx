@@ -4,7 +4,7 @@ import { StoryWrapper } from '@components/Common';
 import TravelPlanCompanion from '@components/TravelPlan/Companion';
 
 export default {
-  title: 'Components/TravlePlan/Companion',
+  title: 'Components/TravelPlan/Companion',
   component: TravelPlanCompanion,
 };
 
