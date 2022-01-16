@@ -8,10 +8,10 @@ export default {
   component: LoginForm,
 };
 
-const Template: Story = ({ }) => {
+const Template: Story = ({}) => {
   return (
     <StoryWrapper>
-        <LoginForm />
+      <LoginForm />
     </StoryWrapper>
   );
 };
