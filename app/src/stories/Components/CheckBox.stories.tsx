@@ -8,12 +8,12 @@ export default {
   component: CheckBox,
 };
 
-const Template: Story = ({ children, onChange, values }) => {
+const Template: Story = ({ children, onChange, values, shape }) => {
   return (
     <StoryWrapper>
       <form>
         {values.map((el: number | string, idx: number) => (
-          <CheckBox value={el} onChange={onChange} key={idx}>
+          <CheckBox value={el} onChange={onChange} key={idx} shape={shape}>
             {children}
           </CheckBox>
         ))}
@@ -53,4 +53,5 @@ Example2.args = {
     console.log(e.target.value);
     console.log(e.target.checked);
   },
+  shape: 'round',
 };

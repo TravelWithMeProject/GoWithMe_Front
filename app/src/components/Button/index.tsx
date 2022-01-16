@@ -2,29 +2,32 @@ import React from 'react';
 import { StyledButton } from './style';
 
 interface Props {
-  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
-  width?: string;
+  disabled?: boolean;
+  fill?: boolean;
   border?: 'round' | 'rect';
   varient?: 'contained' | 'outlined';
-  size?: 'large' | 'small';
+  size?: 'large' | 'medium' | 'small';
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = ({
-  onClick,
   children,
-  width,
+  disabled = false,
+  fill = false,
   border = 'rect',
   varient = 'contained',
   size = 'large',
+  onClick,
 }: Props) => {
   return (
     <StyledButton
-      onClick={(e) => onClick(e)}
+      className={size}
+      onClick={onClick}
       varient={varient}
       border={border}
-      width={width}
-      size={size}
+      fill={fill}
+      disabled={disabled}
     >
       {children}
     </StyledButton>

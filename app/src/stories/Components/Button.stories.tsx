@@ -13,8 +13,9 @@ const Template: Story = ({
   varient,
   border,
   onClick,
-  width,
+  fill,
   size,
+  disabled,
 }) => {
   return (
     <StoryWrapper>
@@ -22,8 +23,9 @@ const Template: Story = ({
         varient={varient}
         border={border}
         onClick={onClick}
-        width={width}
+        fill={fill}
         size={size}
+        disabled={disabled}
       >
         {children}
       </Button>
@@ -43,7 +45,7 @@ Example1.args = {
   varient: 'contained',
   border: 'rect',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
-  width: '50%',
+  fill: true,
   size: 'large',
 };
 
@@ -53,7 +55,7 @@ Example2.args = {
   varient: 'contained',
   border: 'round',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
-  width: '30%',
+  fill: true,
   size: 'small',
 };
 
@@ -62,6 +64,6 @@ Example3.args = {
   children: '가치가요',
   varient: 'contained',
   border: 'rect',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
   size: 'small',
+  disabled: true,
 };
