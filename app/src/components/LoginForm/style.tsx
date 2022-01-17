@@ -6,10 +6,10 @@ export const StyledLoginForm = styled.form`
 
 export const LoginFormWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
-  padding: 10px;
-  margin: 0 20px;
+  padding: 0;
+  margin: 0;
 `;
 
 export const InputContainer = styled.div`
@@ -19,7 +19,7 @@ export const InputContainer = styled.div`
   width: 100%;
 
   input {
-    margin: 5px;
+    margin-bottom: 5px;
   }
 `;
 
